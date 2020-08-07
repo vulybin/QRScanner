@@ -1,20 +1,13 @@
 package com.example.qrscanner
 
 import android.Manifest
-import android.content.Context
 import android.content.pm.PackageManager
-import android.net.ConnectivityManager
-import android.net.NetworkInfo
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.budiyev.android.codescanner.AutoFocusMode
-import com.budiyev.android.codescanner.CodeScanner
-import com.budiyev.android.codescanner.DecodeCallback
-import com.budiyev.android.codescanner.ErrorCallback
-import com.budiyev.android.codescanner.ScanMode
+import com.budiyev.android.codescanner.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -87,11 +80,6 @@ class MainActivity : AppCompatActivity() {
         close_button.setOnClickListener {
             Toast.makeText(this, "Close", Toast.LENGTH_SHORT).show()
         }
-        val cm = this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        val activeNetwork: NetworkInfo? = cm.activeNetworkInfo
-        val isConnected: Boolean = activeNetwork?.isConnectedOrConnecting == true
-        if(isConnected==true) Toast.makeText(this, "Internet: Yes", Toast.LENGTH_LONG).show()
-        else Toast.makeText(this, "Internet: No", Toast.LENGTH_LONG).show()
     }
 
     override fun onPause() {
